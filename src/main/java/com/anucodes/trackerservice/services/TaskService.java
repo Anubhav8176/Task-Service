@@ -65,13 +65,12 @@ public class TaskService {
         List<TaskDto> taskToReturn = new ArrayList<>();
 
         for (TaskEntity t : tasks){
-            TaskDto tempTask = TaskDto
-                    .builder()
-                    .userId(t.getUserId())
-                    .title(t.getTitle())
-                    .description(t.getDescription())
-                    .status(t.getStatus())
-                    .build();
+            TaskDto tempTask = new TaskDto(
+                    t.getUserId(),
+                    t.getTitle(),
+                    t.getDescription(),
+                    t.getStatus()
+            );
 
             taskToReturn.add(tempTask);
         }

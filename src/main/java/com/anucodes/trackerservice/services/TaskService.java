@@ -48,6 +48,7 @@ public class TaskService {
         }
 
         TaskEntity taskEntity = new TaskEntity(
+                taskDto.getId(),
                 taskDto.getUserId(),
                 taskDto.getTitle(),
                 taskDto.getDescription(),
@@ -69,7 +70,8 @@ public class TaskService {
                     t.getUserId(),
                     t.getTitle(),
                     t.getDescription(),
-                    t.getStatus()
+                    t.getStatus(),
+                    t.getId()
             );
 
             taskToReturn.add(tempTask);

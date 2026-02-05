@@ -6,15 +6,16 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @NoArgsConstructor
 public class TaskDto {
+    private Long id;
     private String userId;
     private String title;
     private String description;
     private Boolean status;
 
-    public TaskDto(String userId, String title, String description, Boolean status) {
+    public TaskDto(String userId, String title, String description, Boolean status, Long id) {
+        this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;

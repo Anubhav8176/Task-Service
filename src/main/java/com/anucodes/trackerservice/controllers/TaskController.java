@@ -1,6 +1,7 @@
 package com.anucodes.trackerservice.controllers;
 
 
+import com.anucodes.trackerservice.models.FetchTaskDto;
 import com.anucodes.trackerservice.models.TaskDto;
 import com.anucodes.trackerservice.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class TaskController {
         }
     }
 
-    @PostMapping("delete/")
+    @DeleteMapping("delete/")
     public ResponseEntity deleteTask(@RequestBody TaskDto taskDto){
 
         if (taskService.deleteTask(taskDto)){
@@ -39,8 +40,8 @@ public class TaskController {
     }
 
     @GetMapping("allTask/")
-    public ResponseEntity getTasksByUserId(@RequestBody String userId) {
-        List<TaskDto> tasks = taskService.getTaskByUserId(userId);
+    public ResponseEntity getTasksByUserId(@RequestBody FetchTaskDto fetchTaskDto) {
+        List<TaskDto> tasks = taskService.getTaskByUserId(fetchTaskDto.getUserId());
         return new ResponseEntity<>(tasks, HttpStatus.ACCEPTED);
     }
 

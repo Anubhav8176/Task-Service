@@ -7,7 +7,6 @@ import lombok.*;
 @Data
 @Entity
 @AllArgsConstructor
-@RequiredArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TaskEntity {
